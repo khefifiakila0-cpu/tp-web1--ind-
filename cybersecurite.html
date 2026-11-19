@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersécurité — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Digital Skills — Chapitre 1 : Se protéger sur Internet</h1>
+      <p>Comprendre les menaces numériques et appliquer les règles d'hygiène informatique pour sécuriser ses comptes et ses données.</p>
+
+      <h2>1. Les principaux logiciels malveillants (Malwares)</h2>
+      <ul>
+        <li><strong>Virus :</strong> Programme malveillant qui s'attache à un fichier sain et se propage lorsque ce fichier est exécuté, pouvant altérer ou supprimer des données.</li>
+        <li><strong>Ver (Worm) :</strong> Malware autonome capable de se reproduire et de se propager automatiquement à travers un réseau sans intervention humaine en exploitant des failles.</li>
+        <li><strong>Cheval de Troie (Trojan) :</strong> Logiciel caché sous l'apparence d'un programme légitime qui ouvre un accès discret aux attaquants une fois installé.</li>
+        <li><strong>Rançongiciel (Ransomware) :</strong> Logiciel qui chiffre les fichiers de la victime et exige le paiement d'une rançon pour fournir la clé de déchiffrement.</li>
+        <li><strong>Logiciel espion (Spyware) :</strong> Programme collectant secrètement des informations sur l'utilisateur (frappes clavier, historique, identifiants) pour les transmettre à un tiers.</li>
+      </ul>
+
+      <h2>2. Les risques du quotidien</h2>
+      <ul>
+        <li><strong>Hameçonnage (Phishing) :</strong> Envoi de messages frauduleux imitant un organisme officiel pour inciter la victime à saisir ses identifiants ou coordonnées bancaires sur un faux site.</li>
+        <li><strong>Arnaques en ligne :</strong> Faux supports techniques, fausses offres d'emploi ou boutiques frauduleuses visant à soutirer de l'argent ou des données.</li>
+        <li><strong>Vol de comptes :</strong> Prise de contrôle d'un compte via des mots de passe faibles, réutilisés ou compromis lors d'une fuite.</li>
+        <li><strong>Fuite de données (Data breach) :</strong> Divulgation non autorisée d'informations personnelles ou confidentielles depuis une base de données mal sécurisée.</li>
+      </ul>
+
+      <h2>3. Les bonnes pratiques de protection</h2>
+      <ul>
+        <li><strong>Mots de passe robustes & gestionnaire :</strong> Utiliser un mot de passe long, unique par service et généré/stocké dans un gestionnaire (ex. Bitwarden, KeePass).</li>
+        <li><strong>Authentification à deux facteurs (2FA) :</strong> Ajouter une seconde preuve d'identité (application d'authentification ou clé physique) en plus du mot de passe.</li>
+        <li><strong>Mises à jour régulières :</strong> Appliquer rapidement les correctifs du système d'exploitation et des logiciels pour fermer les failles connues.</li>
+        <li><strong>Antivirus et pare-feu :</strong> Maintenir une protection active et analyser les fichiers téléchargés.</li>
+        <li><strong>Vigilance sur les liens et pièces jointes :</strong> Vérifier l'adresse de l'expéditeur et survoler les liens avant de cliquer.</li>
+        <li><strong>Wi-Fi public :</strong> Éviter les opérations sensibles (banque, comptes critiques) sur un réseau public non chiffré ou utiliser un VPN fiable.</li>
+      </ul>
+
+      <h2>4. Support visuel (Infographie / Présentation)</h2>
+      <div class="placeholder-media">
+        <strong>À intégrer :</strong> Exporte ton infographie Canva ou ta présentation Gamma en PDF/image dans <code>medias/infographie-cybersecurite.png</code> et affiche-la ici avec <code>&lt;img src="../medias/infographie-cybersecurite.png" alt="Infographie bonnes pratiques cybersécurité" style="max-width:100%"&gt;</code>.
+      </div>
+
+      <h2>5. Checklist interactive : « Suis-je bien protégé ? »</h2>
+      <form id="cyber-quiz">
+        <div class="quiz-item"><label><input type="checkbox"> J'utilise un mot de passe différent et complexe pour chaque compte important.</label></div>
+        <div class="quiz-item"><label><input type="checkbox"> J'utilise un gestionnaire de mots de passe sécurisé.</label></div>
+        <div class="quiz-item"><label><input type="checkbox"> J'ai activé la double authentification (2FA) sur ma messagerie et mes réseaux.</label></div>
+        <div class="quiz-item"><label><input type="checkbox"> Mon système d'exploitation et mes navigateurs sont à jour.</label></div>
+        <div class="quiz-item"><label><input type="checkbox"> Je vérifie l'expéditeur et l'URL avant de cliquer sur un lien reçu par e-mail ou SMS.</label></div>
+        <div class="quiz-item"><label><input type="checkbox"> Je réalise régulièrement des sauvegardes de mes fichiers importants.</label></div>
+        <br>
+        <button class="btn" type="submit">Évaluer mon niveau</button>
+      </form>
+      <p id="quiz-result" style="margin-top:0.75rem;"></p>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> Perplexity, Canva, Claude/ChatGPT</li>
+        <li><strong>Rôle de l'IA :</strong> Recherche de définitions normalisées et génération du script JavaScript de la checklist interactive.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Synthèse des définitions, vérification sur les guides officiels ANSSI et Cybermalveillance.gouv.fr, réalisation de l'infographie.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="https://cyber.gouv.fr/" target="_blank" rel="noopener">ANSSI - Guides des bonnes pratiques</a></li><li><a href="https://www.cybermalveillance.gouv.fr/" target="_blank" rel="noopener">Cybermalveillance.gouv.fr</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

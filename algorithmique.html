@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithmique — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Unité Développement — Algorithmique</h1>
+      <p>Trois algorithmes fondamentaux présentés en pseudo-code avec exemple pas à pas et traduction en code.</p>
+
+      <h2>Algorithme 1 : Recherche du maximum dans un tableau</h2>
+      <p><strong>Idée générale :</strong> Supposer que le premier élément est le plus grand, puis parcourir le reste du tableau en mettant à jour le maximum dès qu'une valeur supérieure est rencontrée.</p>
+      <pre><code>Algorithme RechercheMax
+Variables
+    T : Tableau[0..N-1] d'entiers
+    i, max : Entier
+Début
+    max &lt;- T[0]
+    Pour i de 1 à N - 1 Faire
+        Si T[i] &gt; max Alors
+            max &lt;- T[i]
+        FinSi
+    FinPour
+    Afficher("Maximum = ", max)
+Fin</code></pre>
+      <p><strong>Exemple pas à pas sur [12, 45, 7, 30] :</strong> Initialisation <code>max = 12</code> → <code>i=1</code> (45 &gt; 12 → <code>max = 45</code>) → <code>i=2</code> (7 &lt; 45) → <code>i=3</code> (30 &lt; 45) → Résultat : <strong>45</strong>.</p>
+      <p><strong>Traduction Python :</strong> <code>max_val = T[0]; [max_val := x for x in T[1:] if x &gt; max_val]</code> (ou boucle classique <code>for x in T:</code>).</p>
+
+      <h2>Algorithme 2 : Recherche séquentielle d'un élément</h2>
+      <p><strong>Idée générale :</strong> Parcourir les cases du tableau une par une jusqu'à trouver la valeur recherchée ou atteindre la fin du tableau.</p>
+      <pre><code>Algorithme RechercheSequentielle
+Variables
+    T : Tableau[0..N-1] d'entiers
+    i, cible, pos : Entier
+Début
+    pos &lt;- -1
+    i &lt;- 0
+    TantQue (i &lt; N) ET (pos = -1) Faire
+        Si T[i] = cible Alors
+            pos &lt;- i
+        Sinon
+            i &lt;- i + 1
+        FinSi
+    FinTantQue
+    Afficher("Position = ", pos)
+Fin</code></pre>
+      <p><strong>Exemple pas à pas sur [8, 19, 3, 25] avec cible = 3 :</strong> <code>i=0</code> (8 ≠ 3) → <code>i=1</code> (19 ≠ 3) → <code>i=2</code> (3 = 3 → <code>pos = 2</code>, arrêt de la boucle).</p>
+
+      <h2>Algorithme 3 : Tri à bulles (Bubble Sort)</h2>
+      <p><strong>Idée générale :</strong> Comparer les éléments adjacents deux à deux et les échanger s'ils sont mal ordonnés, faisant remonter les plus grandes valeurs à la fin à chaque passage.</p>
+      <pre><code>Algorithme TriBulles
+Variables
+    T : Tableau[0..N-1] d'entiers
+    i, j, temp : Entier
+Début
+    Pour i de 0 à N - 2 Faire
+        Pour j de 0 à N - 2 - i Faire
+            Si T[j] &gt; T[j + 1] Alors
+                temp &lt;- T[j]
+                T[j] &lt;- T[j + 1]
+                T[j + 1] &lt;- temp
+            FinSi
+        FinPour
+    FinPour
+Fin</code></pre>
+      <p><strong>Démonstration interactive (JavaScript) sur [34, 12, 45, 7, 23] :</strong></p>
+      <button class="btn" id="run-bubble-sort" type="button">Exécuter le tri pas à pas</button>
+      <div id="sort-steps" style="margin-top:0.75rem; font-family:monospace;"></div>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> Claude/ChatGPT, VS Code</li>
+        <li><strong>Rôle de l'IA :</strong> Aide à la création du simulateur JavaScript pas à pas du tri à bulles.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Rédaction des pseudo-codes, déroulé manuel des traces d'exécution et validation des conditions d'arrêt.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="#" target="_blank" rel="noopener">Cours d'algorithmique de 1ère année</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

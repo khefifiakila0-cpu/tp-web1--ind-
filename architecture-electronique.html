@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Électronique — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Architecture des ordinateurs et électronique numérique</h1>
+
+      <h2>1. Architecture de Von Neumann d'un ordinateur</h2>
+      <div class="diagram-box">
+        <strong>[ Unité Centrale de Traitement (CPU) ]</strong><br>
+        Unité de Commande (UC) + Unité Arithmétique et Logique (UAL) + Registres<br>
+        ↕ <em>Bus d'adresses, Bus de données, Bus de contrôle</em> ↕<br>
+        <strong>[ Mémoire Centrale (RAM / ROM) ]</strong> &nbsp;|&nbsp; <strong>[ Interfaces d'Entrée / Sortie (Clavier, Écran, Réseau) ]</strong>
+      </div>
+      <ul>
+        <li><strong>Processeur (CPU) :</strong> Exécute les instructions des programmes (cycle Recherche → Décodage → Exécution).</li>
+        <li><strong>Mémoire centrale :</strong> La RAM stocke temporairement les données et programmes en cours d'exécution (volatile) ; la ROM contient le microprogramme de démarrage.</li>
+        <li><strong>Entrées / Sorties :</strong> Permettent la communication entre l'ordinateur et l'extérieur.</li>
+        <li><strong>Bus système :</strong> Ensemble de lignes électriques transportant les adresses mémoire, les données et les signaux de synchronisation.</li>
+      </ul>
+
+      <h2>2. Systèmes de numération (Binaire et Hexadécimal)</h2>
+      <p>Les circuits numériques fonctionnent en base 2 (bits <code>0</code> et <code>1</code>). L'hexadécimal (base 16 : chiffres <code>0-9</code> et lettres <code>A-F</code>) offre une écriture compacte des mots binaires (1 chiffre hexadécimal = 4 bits).</p>
+      <table>
+        <thead>
+          <tr><th>Décimal (Base 10)</th><th>Binaire (Base 2)</th><th>Hexadécimal (Base 16)</th><th>Détail de conversion</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>13</td><td><code>1101</code></td><td><code>D</code></td><td>8 + 4 + 0 + 1 = 13</td></tr>
+          <tr><td>42</td><td><code>0010 1010</code></td><td><code>2A</code></td><td>32 + 8 + 2 = 42 → 2×16 + 10</td></tr>
+          <tr><td>255</td><td><code>1111 1111</code></td><td><code>FF</code></td><td>Valeur maximale sur 1 octet (8 bits)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Électronique numérique : Portes logiques et table de vérité</h2>
+      <p>Exemple d'une fonction combinatoire : <strong>S = (A ET B) OU (NON B)</strong>.</p>
+      <table>
+        <thead>
+          <tr><th>A</th><th>B</th><th>A ET B</th><th>NON B</th><th>S = (A ET B) OU (NON B)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>1</td><td><strong>1</strong></td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td><strong>1</strong></td></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>0</td><td><strong>1</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="placeholder-media">Ajoute ici la capture de ton circuit simulé (Logisim / CircuitVerse / TinkerCAD) : <code>medias/portes-logiques.png</code></div>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> Claude/ChatGPT, simulateur logique</li>
+        <li><strong>Rôle de l'IA :</strong> Vérification des conversions numériques et mise en forme des tableaux de vérité.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Construction du schéma d'architecture, calcul manuel des conversions et vérification de la table de vérité.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="#" target="_blank" rel="noopener">Cours d'architecture des ordinateurs et systèmes logiques</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

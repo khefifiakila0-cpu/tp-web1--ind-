@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Langage C — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Unité Développement — Langage C</h1>
+      <p>Trois programmes en langage C compilés avec <code>gcc</code> illustrant les types, conditions, boucles, tableaux et pointeurs, suivis d'un comparatif avec Python.</p>
+
+      <h2>Programme 1 : Calcul de factorielle (boucles et conditions)</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    unsigned long long fact = 1;
+
+    printf("Entrez un entier positif : ");
+    if (scanf("%d", &amp;n) != 1 || n &lt; 0) {
+        printf("Entree invalide.\n");
+        return 1;
+    }
+
+    for (int i = 1; i &lt;= n; i++) {
+        fact *= i;
+    }
+
+    printf("Factorielle de %d = %llu\n", n, fact);
+    return 0;
+}</code></pre>
+
+      <h2>Programme 2 : Recherche du minimum et maximum dans un tableau</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int tab[5] = {18, 4, 27, 9, 15};
+    int min = tab[0], max = tab[0];
+
+    for (int i = 1; i &lt; 5; i++) {
+        if (tab[i] &lt; min) min = tab[i];
+        if (tab[i] &gt; max) max = tab[i];
+    }
+
+    printf("Minimum : %d | Maximum : %d\n", min, max);
+    return 0;
+}</code></pre>
+
+      <h2>Programme 3 : Échange de deux variables par pointeurs</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+void echanger(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main(void) {
+    int x = 10, y = 25;
+    printf("Avant : x = %d, y = %d\n", x, y);
+    echanger(&amp;x, &amp;y);
+    printf("Apres : x = %d, y = %d\n", x, y);
+    return 0;
+}</code></pre>
+
+      <h2>Tableau comparatif : Python vs Langage C</h2>
+      <table>
+        <thead>
+          <tr><th>Critère</th><th>Python</th><th>Langage C</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Syntaxe</strong></td><td>Épurée, basée sur l'indentation, proche de l'anglais.</td><td>Plus stricte, utilisation d'accolades <code>{}</code> et de points-virgules <code>;</code>.</td></tr>
+          <tr><td><strong>Typage</strong></td><td>Dynamique (le type est déduit automatiquement à l'exécution).</td><td>Statique et explicite (chaque variable doit être déclarée avec son type).</td></tr>
+          <tr><td><strong>Gestion de la mémoire</strong></td><td>Automatique grâce au ramasse-miettes (<em>Garbage Collector</em>).</td><td>Manuelle via les pointeurs et fonctions <code>malloc</code> / <code>free</code>.</td></tr>
+          <tr><td><strong>Rapidité d'exécution</strong></td><td>Plus lent car langage interprété (bytecode).</td><td>Très rapide car compilé directement en code machine natif.</td></tr>
+          <tr><td><strong>Usages principaux</strong></td><td>Data science, IA, scripts d'automatisation, développement web backend.</td><td>Systèmes d'exploitation, systèmes embarqués, pilotes, logiciels critiques.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> GCC, VS Code, Claude/ChatGPT</li>
+        <li><strong>Rôle de l'IA :</strong> Clarification des messages d'avertissement du compilateur GCC et vérification du passage par adresse avec pointeurs.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Rédaction, compilation et exécution des 3 programmes C ; rédaction personnelle du tableau comparatif Python/C.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="https://gcc.gnu.org/onlinedocs/" target="_blank" rel="noopener">GNU GCC Documentation</a></li><li><a href="https://en.cppreference.com/w/c" target="_blank" rel="noopener">cppreference - C Reference</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

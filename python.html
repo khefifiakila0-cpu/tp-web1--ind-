@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Unité Développement — Python</h1>
+      <p>Présentation de 3 mini-projets réalisés en Python sous VS Code pour mettre en pratique les structures conditionnelles, les boucles, les fonctions et les listes.</p>
+
+      <h2>Mini-projet 1 : Calculatrice interactive en ligne de commande</h2>
+      <p><strong>Problème :</strong> Permettre à un utilisateur d'effectuer des opérations arithmétiques de base (+, -, *, /) en boucle tout en gérant la division par zéro et les saisies invalides.</p>
+      <pre><code>def calculatrice():
+    while True:
+        choix = input("Opération (+, -, *, /) ou 'q' pour quitter : ").strip()
+        if choix.lower() == 'q':
+            print("Fin du programme.")
+            break
+        if choix not in ('+', '-', '*', '/'):
+            print("Opérateur invalide.")
+            continue
+        try:
+            a = float(input("Premier nombre : "))
+            b = float(input("Deuxième nombre : "))
+            if choix == '+':
+                print(f"Résultat : {a + b}")
+            elif choix == '-':
+                print(f"Résultat : {a - b}")
+            elif choix == '*':
+                print(f"Résultat : {a * b}")
+            elif choix == '/':
+                if b == 0:
+                    print("Erreur : division par zéro impossible.")
+                else:
+                    print(f"Résultat : {a / b:.2f}")
+        except ValueError:
+            print("Erreur : veuillez saisir des nombres valides.")
+
+if __name__ == "__main__":
+    calculatrice()</code></pre>
+      <p><strong>Fonctionnement :</strong> Une boucle <code>while</code> demande l'opérateur puis convertit les entrées en flottants dans un bloc <code>try/except</code> pour éviter un arrêt brutal en cas de saisie textuelle.</p>
+      <p><strong>Difficulté & solution :</strong> Le programme plantait si l'utilisateur entrait des lettres au lieu d'un nombre ; résolu avec <code>try/except ValueError</code>.</p>
+      <div class="placeholder-media">Ajoute ici ta capture d'écran du terminal : <code>medias/python-calculatrice.png</code></div>
+
+      <h2>Mini-projet 2 : Jeu du nombre mystère</h2>
+      <p><strong>Problème :</strong> L'ordinateur choisit un entier aléatoire entre 1 et 100 et guide le joueur (« Trop petit » / « Trop grand ») jusqu'à la victoire en comptant les essais.</p>
+      <pre><code>import random
+
+def jeu_devinette():
+    secret = random.randint(1, 100)
+    essais = 0
+    print("Devinez le nombre entre 1 et 100 !")
+    while True:
+        try:
+            proposition = int(input("Votre proposition : "))
+            essais += 1
+            if proposition &lt; secret:
+                print("Trop petit !")
+            elif proposition &gt; secret:
+                print("Trop grand !")
+            else:
+                print(f"Bravo ! Trouvé en {essais} essai(s).")
+                break
+        except ValueError:
+            print("Entrez un entier valide.")
+
+if __name__ == "__main__":
+    jeu_devinette()</code></pre>
+      <p><strong>Fonctionnement :</strong> Utilise <code>random.randint(1, 100)</code> et incrémente un compteur <code>essais</code> à chaque tentative valide jusqu'à l'égalité.</p>
+      <p><strong>Difficulté & solution :</strong> J'avais initialement placé <code>random.randint</code> à l'intérieur de la boucle, ce qui changeait le nombre à chaque tour ; corrigé en le sortant avant le <code>while</code>.</p>
+      <div class="placeholder-media">Ajoute ici ta capture d'écran du terminal : <code>medias/python-devinette.png</code></div>
+
+      <h2>Mini-projet 3 : Gestionnaire de notes d'étudiant</h2>
+      <p><strong>Problème :</strong> Saisir les notes d'un module, calculer la moyenne générale, identifier la note minimale/maximale et afficher la mention.</p>
+      <pre><code>def gestionnaire_notes():
+    notes = []
+    n = int(input("Combien de notes souhaitez-vous saisir ? "))
+    for i in range(n):
+        note = float(input(f"Note {i + 1} (/20) : "))
+        while note &lt; 0 or note &gt; 20:
+            note = float(input("Note invalide (0 à 20). Recommencez : "))
+        notes.append(note)
+
+    moyenne = sum(notes) / len(notes)
+    print(f"Notes : {notes}")
+    print(f"Moyenne : {moyenne:.2f}/20 | Min : {min(notes)} | Max : {max(notes)}")
+    if moyenne &gt;= 10:
+        print("Statut : Module validé")
+    else:
+        print("Statut : Ajourné")
+
+if __name__ == "__main__":
+    gestionnaire_notes()</code></pre>
+      <p><strong>Fonctionnement :</strong> Stocke les notes validées (entre 0 et 20) dans une liste Python puis exploite les fonctions natives <code>sum()</code>, <code>len()</code>, <code>min()</code> et <code>max()</code>.</p>
+      <p><strong>Difficulté & solution :</strong> Validation des bornes [0, 20] ajoutée avec une boucle interne pour éviter de fausser la moyenne.</p>
+      <div class="placeholder-media">Ajoute ici ta capture d'écran du terminal : <code>medias/python-notes.png</code></div>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> VS Code, Python 3, Claude/ChatGPT</li>
+        <li><strong>Rôle de l'IA :</strong> Explication de la gestion des exceptions (ValueError) et relecture de la structure des fonctions.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Écriture de l'algorithme de chaque mini-projet, tests sur plusieurs jeux de données et capture des exécutions.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="https://docs.python.org/fr/3/" target="_blank" rel="noopener">Documentation officielle Python 3</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

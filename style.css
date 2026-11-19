@@ -1,0 +1,217 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --border: #e2e8f0;
+  --code-bg: #1e293b;
+  --code-text: #f8fafc;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --border: #334155;
+  --code-bg: #020617;
+  --code-text: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.2s, color 0.2s;
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+
+nav a:hover, nav a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn, .btn-small {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-small { padding: 0.3rem 0.6rem; font-size: 0.85rem; }
+.btn:hover, .btn-small:hover { background: var(--primary-hover); }
+
+main {
+  max-width: 1050px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h1 { font-size: 1.8rem; margin-bottom: 0.75rem; color: var(--primary); }
+h2 { font-size: 1.35rem; margin-bottom: 0.75rem; border-bottom: 2px solid var(--border); padding-bottom: 0.35rem; }
+h3 { font-size: 1.1rem; margin: 1rem 0 0.4rem; }
+p { margin-bottom: 0.75rem; }
+ul, ol { margin-left: 1.4rem; margin-bottom: 0.75rem; }
+li { margin-bottom: 0.35rem; }
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--bg);
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--primary);
+  color: #fff;
+}
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+
+.diagram-box {
+  background: var(--bg);
+  border: 1px dashed var(--primary);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  text-align: center;
+}
+
+.placeholder-media {
+  background: var(--bg);
+  border: 2px dashed var(--muted);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  color: var(--muted);
+}
+
+.quiz-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-transparency {
+  border-left: 4px solid var(--primary);
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; }
+  nav.open { display: flex; }
+}

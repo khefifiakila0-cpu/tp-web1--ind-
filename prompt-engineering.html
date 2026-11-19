@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering — Portfolio Numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Portfolio Numérique</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../digital-skills/cybersecurite.html">Cybersécurité</a>
+        <a href="../digital-skills/prompt-engineering.html">Prompt Engineering</a>
+        <a href="../digital-skills/creation-contenu.html">Création de contenu</a>
+        <a href="../developpement/python.html">Python</a>
+        <a href="../developpement/langage-c.html">Langage C</a>
+        <a href="../developpement/algorithmique.html">Algorithmique</a>
+        <a href="../systemes/systemes-exploitation.html">Systèmes</a>
+        <a href="../systemes/architecture-electronique.html">Architecture & Élec</a>
+        <button id="theme-toggle" class="btn-small" type="button">Mode sombre</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Digital Skills — Chapitre 2 : Prompt Engineering</h1>
+      <p>L'ingénierie de prompt consiste à structurer clairement ses demandes afin d'obtenir des réponses fiables, pertinentes et adaptées d'un modèle d'IA générative.</p>
+
+      <h2>1. Anatomie d'un bon prompt et techniques clés</h2>
+      <ul>
+        <li><strong>Composants essentiels :</strong> Rôle (qui est l'IA), Contexte (situation/niveau), Tâche (action précise), Format de sortie (tableau, liste, code), Contraintes (longueur, langue, restrictions) et Exemples.</li>
+        <li><strong>Techniques efficaces :</strong> Raisonnement étape par étape (<em>Chain-of-Thought</em>), apprentissage par exemples (<em>Few-Shot</em>), itération progressive et demande d'auto-vérification des sources ou limites.</li>
+      </ul>
+
+      <h2>2. Comparaison des outils sur un même besoin</h2>
+      <table>
+        <thead>
+          <tr><th>Outil</th><th>Points forts observés</th><th>Usage recommandé</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Claude</strong></td><td>Explications pédagogiques claires, bonne structuration de code et textes longs.</td><td>Compréhension de cours, relecture et débogage détaillé.</td></tr>
+          <tr><td><strong>ChatGPT</strong></td><td>Grande polyvalence, bon suivi d'instructions structurées et reformulation.</td><td>Brainstorming, génération d'exercices et assistance générale.</td></tr>
+          <tr><td><strong>Perplexity</strong></td><td>Réponses appuyées sur des recherches web en temps réel avec citations cliquables.</td><td>Recherche documentaire et vérification de faits/sources.</td></tr>
+          <tr><td><strong>Grok</strong></td><td>Synthèse rapide et ton direct sur des sujets d'actualité ou techniques.</td><td>Exploration rapide d'idées ou comparaison de points de vue.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Cas pratiques : Avant / Après</h2>
+
+      <h3>Cas 1 : Compréhension d'un concept d'algorithmique</h3>
+      <table>
+        <thead><tr><th>Étape</th><th>Contenu</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prompt initial (faible)</strong></td><td>« Explique le tri par sélection. »</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>Définition théorique très générale, sans exemple chiffré ni complexité.</td></tr>
+          <tr><td><strong>Prompt amélioré</strong></td><td>« Agis comme un enseignant d'informatique en 1ère année. Explique le tri par sélection étape par étape sur le tableau [14, 5, 9, 2]. Donne ensuite la complexité temporelle et une implémentation commentée en Python. »</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>Trace complète passage par passage, explication claire du coût O(n²) et code Python lisible.</td></tr>
+          <tr><td><strong>Analyse</strong></td><td>L'ajout d'un rôle, d'un exemple concret et d'un format précis transforme une définition vague en support de révision exploitable.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cas 2 : Correction et débogage d'un programme en C</h3>
+      <table>
+        <thead><tr><th>Étape</th><th>Contenu</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prompt initial (faible)</strong></td><td>« Mon code C ne marche pas, corrige-le. » (+ code)</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>L'IA renvoie directement le code corrigé sans expliquer l'origine du bug.</td></tr>
+          <tr><td><strong>Prompt amélioré</strong></td><td>« Voici mon code C qui calcule la moyenne d'un tableau, mais il affiche une valeur fausse. Ne me donne pas tout le code corrigé : identifie l'erreur (type ou indice), explique pourquoi elle se produit et donne-moi un indice pour la corriger moi-même. »</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>Diagnostic précis sur la division entière (<code>somme / n</code> au lieu de <code>(float)somme / n</code>) et explication pédagogique.</td></tr>
+          <tr><td><strong>Analyse</strong></td><td>Les contraintes négatives (« ne me donne pas tout le code ») permettent d'apprendre réellement au lieu de copier-coller.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cas 3 : Synthèse documentaire en cybersécurité</h3>
+      <table>
+        <thead><tr><th>Étape</th><th>Contenu</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prompt initial (faible)</strong></td><td>« Parle-moi du phishing. »</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>Paragraphe générique sans distinctions techniques ni recommandations actionnables.</td></tr>
+          <tr><td><strong>Prompt amélioré</strong></td><td>« Rédige une fiche de synthèse sur le hameçonnage (phishing) destinée à des étudiants. Structure la réponse en 3 parties : 1) Mécanisme d'attaque, 2) 4 signes permettant de repérer un faux e-mail, 3) Réflexes de protection. Limite-toi à 200 mots sous forme de liste à puces. »</td></tr>
+          <tr><td><strong>Résultat obtenu</strong></td><td>Fiche concise, structurée et directement intégrable dans une présentation.</td></tr>
+          <tr><td><strong>Analyse</strong></td><td>Le cadrage du public cible, du plan en 3 points et de la limite de mots élimine le superflu.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. Bibliothèque de 5 prompts réutilisables pour les études</h2>
+      <ol>
+        <li><strong>Fiche de révision :</strong> « Résume ce cours sur [Sujet] en 5 points clés, définis les 4 termes techniques indispensables et propose 3 questions d'auto-évaluation avec corrigé masqué. »</li>
+        <li><strong>Explication d'erreur de compilation :</strong> « Voici le message d'erreur GCC/Python : [Message]. Explique en termes simples ce que signifie cette erreur et comment la résoudre sur ce bloc de code : [Code]. »</li>
+        <li><strong>Générateur d'exercices progressifs :</strong> « Crée 3 exercices d'entraînement sur [Notion : ex. boucles en C] : un facile, un intermédiaire et un avancé, sans donner la solution tout de suite. »</li>
+        <li><strong>Relecture critique d'un rapport :</strong> « Relis ce texte académique. Corrige les fautes d'orthographe, améliore la clarté des phrases sans changer le sens, et signale les affirmations qui manquent de précision. »</li>
+        <li><strong>Préparation à une soutenance orale :</strong> « Voici le plan de ma présentation de 5 minutes sur [Sujet]. Propose 5 questions difficiles qu'un jury pourrait me poser et des pistes de réponses concises. »</li>
+      </ol>
+    </section>
+    <section class="ai-transparency" aria-label="Fiche Transparence IA">
+      <h2>Fiche « Transparence IA »</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> Claude, ChatGPT, Perplexity, Grok</li>
+        <li><strong>Rôle de l'IA :</strong> Tests comparatifs des prompts initiaux et améliorés afin d'analyser l'impact de la structuration des consignes.</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> Conception des cas pratiques, analyse comparative des résultats et sélection des 5 prompts adaptés à mes matières.</li>
+        <li><strong>Sources vérifiées :</strong>
+          <ul><li><a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener">Guide OpenAI Prompt Engineering</a></li><li><a href="https://docs.anthropic.com/" target="_blank" rel="noopener">Documentation Anthropic Prompting</a></li></ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Portfolio Numérique — 1ère année Licence en Technologie de l'Informatique | Hébergé sur GitHub Pages</p>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>
